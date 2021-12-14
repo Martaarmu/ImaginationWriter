@@ -1,0 +1,33 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="ApplicationH2">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:./data" />
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+            <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
+            <property name="connection.pool_size" value="1"/>
+            <property name="hibernate.hbm2ddl.auto" value="update" /><!-- Validate es mejor en producción -->
+            <!--Mostrar sentencias SQL lanzadas por hibernate-->
+            <!--<property name="hibernate.show_sql" value="true"/>-->
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="ApplicationMariaDB">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/orm" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect" />
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+            <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
+            <property name="hibernate.hbm2ddl.auto" value="update" /><!-- Validate es mejor en producción -->
+            <!--Mostrar sentencias SQL lanzadas por hibernate-->
+            <!--<property name="hibernate.show_sql" value="true"/>-->
+        </properties>
+    </persistence-unit>
+</persistence>

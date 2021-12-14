@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.pixelduke.control.*?>
+<?import com.pixelduke.control.ribbon.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="BorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.IW.controllers.EditorController">
+    <top>
+        <Ribbon>
+            <tabs>
+                <RibbonTab text="Inicio">
+                    <ribbonGroups>
+                        <RibbonGroup alignment="CENTER" title="Archivo">
+                            <nodes>
+                                <Column />
+                                <Column />
+                                <Column>
+                                    <Button fx:id="btn_open_txt" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="big">
+                                        <graphic>
+                                            <ImageView>
+                                                <Image url="@icons/icons8_Open_32px_3.png" />
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </Column>
+                                <Column maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                    <Button fx:id="btn_save_book" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="big">
+                                        <graphic>
+                                            <ImageView>
+                                                <Image url="@icons/icons8_Save_32px.png" />
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </Column>
+                                <Column />
+                                <Column />
+                            </nodes>
+                        </RibbonGroup>
+                        <RibbonGroup title="Cambiar Capítulo">
+                            <nodes>
+                                <Column />
+                                <Column />
+                                <Column>
+                                    <RibbonItem fx:id="part_item" label="Parte: ">
+                                        <item>
+                                            <ComboBox fx:id="cb_parts" />
+                                        </item>
+                                    </RibbonItem>
+                                    <RibbonItem fx:id="chapter_item" label="Capítulo:">
+                                        <item>
+                                            <ComboBox fx:id="cb_chapters" />
+                                        </item>
+                                    </RibbonItem>
+                                </Column>
+                                <Column />
+                                <Column />
+                            </nodes>
+                        </RibbonGroup>
+                        <RibbonGroup title="Personajes-Escenas">
+                            <nodes>
+                                <Column />
+                                <Column />
+                                <Column />
+                                <Column />
+                                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button fx:id="btn_book_items" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="big" />
+                                    </children>
+                                </GridPane>
+                                <Column />
+                                <Column />
+                                <Column />
+                                <Column />
+                            </nodes>
+                        </RibbonGroup>
+                    </ribbonGroups>
+                </RibbonTab>
+                <RibbonTab fx:id="tab_chapter" disable="true" text="Anotaciones capítulo">
+                    <ribbonGroups>
+                        <RibbonGroup title="Nota">
+                            <nodes>
+                                <Column />
+                                <Column />
+                                <Column>
+                                <TextArea fx:id="ta_note_chapter" disable="true" wrapText="true" />
+                                </Column>
+                                <Column>
+                                    <Button fx:id="btn_save_note" disable="true">
+                                        <graphic>
+                                            <ImageView>
+                                                <Image url="@icons/icons8_Save_32px.png" />
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </Column>
+                                <Column />
+                                <Column />
+                            </nodes>
+                        </RibbonGroup>
+                        <RibbonGroup title="Resumen">
+                            <nodes>
+                                <Column />
+                                <Column />
+                                <Column>
+                                    <TextArea fx:id="ta_resume_chapter" disable="true" wrapText="true" />
+                                </Column>
+                                <Column>
+                                    <Button fx:id="btn_save_resume" disable="true">
+                                        <graphic>
+                                            <ImageView>
+                                                <Image url="@icons/icons8_Save_32px.png" />
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </Column>
+                                <Column />
+                                <Column />
+                            </nodes>
+                        </RibbonGroup>
+                    </ribbonGroups>
+                </RibbonTab>
+            </tabs>
+        </Ribbon>
+
+    </top>
+    <center>
+        <TextArea fx:id="ta_chapter" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </BorderPane.margin>
+        </TextArea>
+    </center>
+    <left>
+        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="5.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" percentHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" percentHeight="85.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TreeTableView fx:id="table_parts_chapters" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1">
+                    <columns>
+                        <TreeTableColumn fx:id="tc_part_chapter" prefWidth="75.0" sortable="false" text="Partes-Capítulos" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TreeTableView>
+                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="btn_controlPC" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Label text="Partes-Capítulos" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                    </children>
+                </GridPane>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </BorderPane.margin>
+        </GridPane>
+    </left>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="lb_info_save" text="Último autoguardado" GridPane.halignment="RIGHT" />
+            <Label fx:id="lb_auto_save" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+   </bottom>
+</BorderPane>
